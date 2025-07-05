@@ -100,6 +100,7 @@ const UrlInput = ({ onSubmit, initialUrl = "" }: UrlInputProps) => {
           
           <input
             type="text"
+            id="url-input"
             value={inputValue}
             onChange={(e) => {
               setInputValue(e.target.value);
