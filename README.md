@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Responsive Viewer
+
+A powerful tool for previewing websites on different devices and screen sizes simultaneously. Perfect for developers, designers, and QA testers who need to ensure their websites are responsive across multiple devices.
+
+![Responsive Viewer Screenshot](https://via.placeholder.com/1200x600/0f172a/3b82f6?text=Responsive+Viewer)
+
+## Features
+
+- **Multi-device Preview**: View your website on multiple devices simultaneously
+- **Device Selection**: Choose from popular device presets or create custom screen sizes
+- **Customizable Layout**: Switch between grid and list views to organize your previews
+- **Scale Control**: Adjust the scale of device frames to fit more on your screen
+- **Real-time Updates**: See changes instantly when you modify your website
+- **User-friendly Interface**: Clean, intuitive design with a dark mode UI
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18.0 or later
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/responsive-viewer.git
+cd responsive-viewer
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Start the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Enter a website URL in the input field at the top of the page
+2. Select one or more devices from the device selection panel
+3. The website will be displayed in each selected device frame
+4. Use the controls to adjust the layout and scale as needed
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+### Deploying to Cloudflare Pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push your code to GitHub
+2. Log in to Cloudflare Pages and create a new project
+3. Connect your GitHub repository
+4. Configure the build settings:
+   - Build command: `npm run build`
+   - Build output directory: `out`
+5. Deploy your site
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Built With
 
-## Deploy on Vercel
+- [Next.js](https://nextjs.org/) - React framework for server-side rendering
+- [React](https://reactjs.org/) - JavaScript library for building user interfaces
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Framer Motion](https://www.framer.com/motion/) - Animation library for React
+- [React Icons](https://react-icons.github.io/react-icons/) - Icon library
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Inspired by browser developer tools and responsive design testing needs
+- Thanks to all the open-source projects that made this possible

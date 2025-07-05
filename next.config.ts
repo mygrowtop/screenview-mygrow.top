@@ -1,7 +1,13 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export', // Enable static exports for Cloudflare Pages
+  images: {
+    unoptimized: true, // Required for static export
+  },
+  // Configure domains for external images if needed
+  // images: {
+  //   domains: ['example.com'],
+  // },
 };
 
 export default nextConfig;
