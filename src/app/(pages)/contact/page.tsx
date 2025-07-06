@@ -30,7 +30,7 @@ export default function ContactPage() {
     // Basic validation
     if (!formState.name || !formState.email || !formState.message) {
       setFormStatus("error");
-      setErrorMessage("请填写所有必填字段。");
+      setErrorMessage("Please fill in all required fields.");
       return;
     }
     
@@ -57,7 +57,7 @@ export default function ContactPage() {
       }, 5000);
     } catch (error) {
       setFormStatus("error");
-      setErrorMessage("发生错误，请稍后再试。");
+      setErrorMessage("An error occurred. Please try again later.");
     }
   };
   
@@ -68,9 +68,9 @@ export default function ContactPage() {
       <main className="flex-grow pt-20 pb-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-white mb-4">联系我们</h1>
+            <h1 className="text-4xl font-bold text-white mb-4">Contact Us</h1>
             <p className="text-xl text-gray-300">
-              与 Responsive Viewer 团队取得联系
+              Get in touch with the ScreenView team
             </p>
           </div>
           
@@ -84,9 +84,9 @@ export default function ContactPage() {
               <div className="h-12 w-12 rounded-full bg-blue-600 flex items-center justify-center mx-auto mb-4">
                 <FiMail size={24} />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">邮箱</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Email</h3>
               <p className="text-gray-300 mb-4">
-                用于一般咨询和支持
+                For general inquiries and support
               </p>
               <a 
                 href="mailto:contact@responsive-viewer.com" 
@@ -107,15 +107,15 @@ export default function ContactPage() {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">GitHub</h3>
               <p className="text-gray-300 mb-4">
-                报告问题或为项目做贡献
+                Report issues or contribute to the project
               </p>
               <a 
-                href="https://github.com/your-username/responsive-viewer" 
+                href="https://github.com/your-username/screen-view" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-300 transition-colors"
               >
-                github.com/your-username/responsive-viewer
+                github.com/your-username/screen-view
               </a>
             </motion.div>
             
@@ -130,7 +130,7 @@ export default function ContactPage() {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Twitter</h3>
               <p className="text-gray-300 mb-4">
-                关注我们获取更新和公告
+                Follow us for updates and announcements
               </p>
               <a 
                 href="https://twitter.com/your-username" 
@@ -144,13 +144,13 @@ export default function ContactPage() {
           </div>
           
           <div className="bg-gray-800 rounded-lg p-6 md:p-8">
-            <h2 className="text-2xl font-bold text-white mb-6">给我们留言</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">Leave us a message</h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-                    姓名 <span className="text-red-500">*</span>
+                    Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -165,7 +165,7 @@ export default function ContactPage() {
                 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-                    邮箱 <span className="text-red-500">*</span>
+                    Email <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -181,7 +181,7 @@ export default function ContactPage() {
               
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">
-                  主题
+                  Subject
                 </label>
                 <select
                   id="subject"
@@ -190,19 +190,19 @@ export default function ContactPage() {
                   onChange={handleChange}
                   className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="">请选择主题</option>
-                  <option value="general">一般咨询</option>
-                  <option value="support">技术支持</option>
-                  <option value="feedback">反馈意见</option>
-                  <option value="feature">功能请求</option>
-                  <option value="bug">错误报告</option>
-                  <option value="other">其他</option>
+                  <option value="">Please select a subject</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="support">Technical Support</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="feature">Feature Request</option>
+                  <option value="bug">Bug Report</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
-                  留言内容 <span className="text-red-500">*</span>
+                  Message <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -226,7 +226,7 @@ export default function ContactPage() {
                 <div className="bg-green-900/30 border border-green-500 rounded-md p-3 flex items-start">
                   <FiCheckCircle className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                   <p className="text-green-300 text-sm">
-                    您的消息已成功发送！我们会尽快回复您。
+                    Your message has been sent successfully! We'll get back to you soon.
                   </p>
                 </div>
               )}
@@ -245,12 +245,12 @@ export default function ContactPage() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      发送中...
+                      Sending...
                     </>
                   ) : (
                     <>
                       <FiSend className="mr-2" />
-                      发送留言
+                      Send Message
                     </>
                   )}
                 </button>

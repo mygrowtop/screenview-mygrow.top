@@ -4,8 +4,8 @@ import Footer from "@/components/Footer";
 import { FiMonitor, FiSmartphone, FiTablet, FiSettings, FiExternalLink } from "react-icons/fi";
 
 export const metadata: Metadata = {
-  title: "使用指南 - Responsive Viewer",
-  description: "学习如何使用 Responsive Viewer 在不同设备和屏幕尺寸上测试网站。",
+  title: "Guide - ScreenView",
+  description: "Learn how to use ScreenView to test websites on different devices and screen sizes.",
 };
 
 export default function GuidePage() {
@@ -16,9 +16,9 @@ export default function GuidePage() {
       <main className="flex-grow pt-20 pb-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-white mb-4">使用指南</h1>
+            <h1 className="text-4xl font-bold text-white mb-4">User Guide</h1>
             <p className="text-xl text-gray-300">
-              如何有效使用 Responsive Viewer
+              How to effectively use ScreenView
             </p>
           </div>
           
@@ -27,33 +27,33 @@ export default function GuidePage() {
             <section className="bg-gray-800 rounded-lg p-6 md:p-8">
               <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
                 <span className="inline-block mr-3 h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center text-lg">1</span>
-                开始使用
+                Getting Started
               </h2>
               
               <div className="space-y-6 text-gray-300">
                 <p>
-                  Responsive Viewer 允许您在不同设备和屏幕尺寸上预览网站。
-                  以下是开始使用的步骤：
+                  ScreenView allows you to preview websites on different devices and screen sizes.
+                  Here are the steps to get started:
                 </p>
                 
                 <ol className="list-decimal list-inside space-y-4">
                   <li className="pl-2">
-                    <span className="font-medium text-white">输入 URL</span> - 在页面顶部的输入框中输入任何网站 URL。
-                    该 URL 将在选定的设备框架中加载。
+                    <span className="font-medium text-white">Enter URL</span> - Input any website URL in the field at the top of the page.
+                    The URL will be loaded within the selected device frames.
                   </li>
                   <li className="pl-2">
-                    <span className="font-medium text-white">选择设备</span> - 从预设设备选项中选择一个设备或创建自定义屏幕尺寸。
+                    <span className="font-medium text-white">Select Device</span> - Choose a device from the preset options or create a custom screen size.
                   </li>
                   <li className="pl-2">
-                    <span className="font-medium text-white">查看结果</span> - 网站将显示在所选设备的框架中，
-                    让您可以查看它在特定屏幕尺寸上的显示效果。
+                    <span className="font-medium text-white">View Results</span> - The website will be displayed within the frame of the selected device,
+                    allowing you to see how it appears at that specific screen size.
                   </li>
                 </ol>
                 
                 <div className="bg-gray-700 rounded-lg p-4 border-l-4 border-blue-500">
                   <p className="text-sm">
-                    <strong>注意：</strong> 由于安全设置，某些网站可能会阻止在 iframe 中显示。
-                    在这些情况下，您将看到错误消息而不是网站内容。
+                    <strong>Note:</strong> Due to security settings, some websites may block display within iframes.
+                    In these cases, you'll see an error message instead of the website content.
                   </p>
                 </div>
               </div>
@@ -63,77 +63,77 @@ export default function GuidePage() {
             <section className="bg-gray-800 rounded-lg p-6 md:p-8">
               <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
                 <span className="inline-block mr-3 h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center text-lg">2</span>
-                设备选择
+                Device Selection
               </h2>
               
               <div className="space-y-6 text-gray-300">
                 <p>
-                  Responsive Viewer 提供了各种不同类别的预设设备：
+                  ScreenView offers various categories of preset devices:
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   <div className="bg-gray-700 p-4 rounded-lg">
                     <div className="flex items-center mb-2">
                       <FiSmartphone className="mr-2 text-blue-400" />
-                      <h3 className="font-medium text-white">移动设备</h3>
+                      <h3 className="font-medium text-white">Mobile Devices</h3>
                     </div>
                     <p className="text-sm">
-                      各种智能手机尺寸，包括 iPhone 和 Android 设备。
+                      Various smartphone sizes, including iPhone and Android devices.
                     </p>
                   </div>
                   
                   <div className="bg-gray-700 p-4 rounded-lg">
                     <div className="flex items-center mb-2">
                       <FiTablet className="mr-2 text-purple-400" />
-                      <h3 className="font-medium text-white">平板电脑</h3>
+                      <h3 className="font-medium text-white">Tablets</h3>
                     </div>
                     <p className="text-sm">
-                      iPad、iPad Pro 和其他流行的平板电脑尺寸。
+                      iPad, iPad Pro, and other popular tablet sizes.
                     </p>
                   </div>
                   
                   <div className="bg-gray-700 p-4 rounded-lg">
                     <div className="flex items-center mb-2">
                       <FiMonitor className="mr-2 text-green-400" />
-                      <h3 className="font-medium text-white">笔记本电脑</h3>
+                      <h3 className="font-medium text-white">Laptops</h3>
                     </div>
                     <p className="text-sm">
-                      各种笔记本电脑屏幕尺寸，包括 MacBook、Surface 等。
+                      Various laptop screen sizes, including MacBook, Surface, and more.
                     </p>
                   </div>
 
                   <div className="bg-gray-700 p-4 rounded-lg">
                     <div className="flex items-center mb-2">
                       <FiMonitor className="mr-2 text-indigo-400" />
-                      <h3 className="font-medium text-white">台式机</h3>
+                      <h3 className="font-medium text-white">Desktop</h3>
                     </div>
                     <p className="text-sm">
-                      标准台式机屏幕分辨率，包括超宽和多屏设置。
+                      Standard desktop screen resolutions, including ultrawide and multi-monitor setups.
                     </p>
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-medium text-white mt-8 mb-4">品牌筛选</h3>
+                <h3 className="text-xl font-medium text-white mt-8 mb-4">Brand Filtering</h3>
                 <p className="mb-4">
-                  每个设备类别中，您可以按品牌筛选设备，以便更快找到所需的设备：
+                  Within each device category, you can filter devices by brand to find what you need more quickly:
                 </p>
 
                 <ul className="list-disc list-inside space-y-2">
-                  <li className="pl-2">选择设备类别（移动设备、平板电脑、笔记本电脑或台式机）</li>
-                  <li className="pl-2">使用品牌筛选器选择特定品牌的设备</li>
-                  <li className="pl-2">结合搜索框，可以更精确地找到所需设备</li>
+                  <li className="pl-2">Select a device category (Mobile, Tablet, Laptop, or Desktop)</li>
+                  <li className="pl-2">Use the brand filters to select devices from specific manufacturers</li>
+                  <li className="pl-2">Combine with the search box for more precise device finding</li>
                 </ul>
 
-                <h3 className="text-xl font-medium text-white mt-8 mb-4">自定义设备</h3>
+                <h3 className="text-xl font-medium text-white mt-8 mb-4">Custom Devices</h3>
                 <p>
-                  需要预设中未包含的特定屏幕尺寸？您可以创建自定义设备：
+                  Need a specific screen size not included in the presets? You can create custom devices:
                 </p>
                 
                 <ol className="list-decimal list-inside space-y-2">
-                  <li className="pl-2">点击设备选择区域中的"自定义"选项卡</li>
-                  <li className="pl-2">为您的自定义设备输入名称</li>
-                  <li className="pl-2">以像素为单位指定宽度和高度</li>
-                  <li className="pl-2">点击"添加设备"将其添加到您选择的设备中</li>
+                  <li className="pl-2">Click on the "Custom" tab in the device selection area</li>
+                  <li className="pl-2">Enter a name for your custom device</li>
+                  <li className="pl-2">Specify width and height in pixels</li>
+                  <li className="pl-2">Click "Add Device" to add it to your selected devices</li>
                 </ol>
               </div>
             </section>
@@ -142,42 +142,42 @@ export default function GuidePage() {
             <section className="bg-gray-800 rounded-lg p-6 md:p-8">
               <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
                 <span className="inline-block mr-3 h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center text-lg">3</span>
-                高级功能
+                Advanced Features
               </h2>
               
               <div className="space-y-6 text-gray-300">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="text-xl font-medium text-white mb-3">查看模式</h3>
+                    <h3 className="text-xl font-medium text-white mb-3">View Modes</h3>
                     <p className="mb-3">
-                      查看设备预览的不同方式：
+                      Different ways to view device previews:
                     </p>
                     <ul className="list-disc list-inside space-y-1">
-                      <li><span className="font-medium">模态窗口</span> - 在弹出窗口中以真实尺寸显示设备</li>
-                      <li><span className="font-medium">全屏模式</span> - 展开设备框架以填满您的浏览器窗口</li>
+                      <li><span className="font-medium">Modal Window</span> - Display devices at actual size in a popup window</li>
+                      <li><span className="font-medium">Fullscreen Mode</span> - Expand device frames to fill your browser window</li>
                     </ul>
                   </div>
                   
                   <div>
-                    <h3 className="text-xl font-medium text-white mb-3">缩放控制</h3>
+                    <h3 className="text-xl font-medium text-white mb-3">Zoom Controls</h3>
                     <p className="mb-3">
-                      调整缩放滑块以调整设备框架大小，同时保持其纵横比。
-                      这对于在屏幕上同时显示更多设备很有用。
+                      Adjust the zoom slider to resize device frames while maintaining their aspect ratio.
+                      This is useful for fitting more devices on screen at once.
                     </p>
                   </div>
                 </div>
                 
                 <div className="mt-8">
-                  <h3 className="text-xl font-medium text-white mb-3">设备控制</h3>
+                  <h3 className="text-xl font-medium text-white mb-3">Device Controls</h3>
                   <p className="mb-3">
-                    设备框架包括以下控件：
+                    Device frames include the following controls:
                   </p>
                   <ul className="list-disc list-inside space-y-2">
                     <li>
-                      <span className="font-medium">关闭</span> - 关闭当前设备预览
+                      <span className="font-medium">Close</span> - Close the current device preview
                     </li>
                     <li>
-                      <span className="font-medium">设备信息</span> - 显示设备名称和分辨率
+                      <span className="font-medium">Device Info</span> - Shows device name and resolution
                     </li>
                   </ul>
                 </div>
@@ -188,37 +188,37 @@ export default function GuidePage() {
             <section className="bg-gray-800 rounded-lg p-6 md:p-8">
               <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
                 <span className="inline-block mr-3 h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center text-lg">4</span>
-                最佳实践
+                Best Practices
               </h2>
               
               <div className="space-y-6 text-gray-300">
                 <p>
-                  要充分利用 Responsive Viewer，请考虑以下最佳实践：
+                  To make the most of ScreenView, consider these best practices:
                 </p>
                 
                 <ul className="list-disc list-inside space-y-4">
                   <li className="pl-2">
-                    <span className="font-medium text-white">测试关键断点</span> - 
-                    专注于测试布局发生显著变化的常见断点。
+                    <span className="font-medium text-white">Test Key Breakpoints</span> - 
+                    Focus on testing common breakpoints where layouts change significantly.
                   </li>
                   <li className="pl-2">
-                    <span className="font-medium text-white">检查极端尺寸</span> - 
-                    测试不同尺寸的设备，从小型移动设备到大型桌面屏幕，确保您的设计能够正确缩放。
+                    <span className="font-medium text-white">Check Extreme Sizes</span> - 
+                    Test devices of varying sizes, from small mobile devices to large desktop screens, to ensure your designs scale properly.
                   </li>
                   <li className="pl-2">
-                    <span className="font-medium text-white">测试交互元素</span> - 
-                    记住，某些交互元素在不同设备上的行为可能不同，尤其是基于触摸的交互。
+                    <span className="font-medium text-white">Test Interactive Elements</span> - 
+                    Remember that some interactive elements may behave differently on different devices, especially touch-based interactions.
                   </li>
                   <li className="pl-2">
-                    <span className="font-medium text-white">保存常用URL</span> - 
-                    如果您经常测试相同的网站，系统会自动保存您最近使用的URL，方便下次快速访问。
+                    <span className="font-medium text-white">Save Common URLs</span> - 
+                    If you frequently test the same websites, the system automatically saves your recently used URLs for quick access next time.
                   </li>
                 </ul>
                 
                 <div className="bg-gray-700 rounded-lg p-4 border-l-4 border-yellow-500 mt-6">
                   <p className="text-sm">
-                    <strong>请记住：</strong> 虽然 Responsive Viewer 提供了网站在特定设备上显示效果的出色近似值，
-                    但在可能的情况下，特别是在重大发布之前，始终建议在实际物理设备上进行测试。
+                    <strong>Remember:</strong> While ScreenView provides an excellent approximation of how websites appear on specific devices,
+                    it's always recommended to test on actual physical devices when possible, especially before major releases.
                   </p>
                 </div>
               </div>
@@ -226,23 +226,23 @@ export default function GuidePage() {
             
             {/* Additional Resources Section */}
             <section className="bg-gray-800 rounded-lg p-6 md:p-8">
-              <h2 className="text-2xl font-bold text-white mb-6">其他资源</h2>
+              <h2 className="text-2xl font-bold text-white mb-6">Additional Resources</h2>
               
               <div className="space-y-4 text-gray-300">
                 <p>
-                  通过以下有用的资源了解更多关于响应式网页设计的信息：
+                  Learn more about responsive web design with these useful resources:
                 </p>
                 
                 <ul className="space-y-3">
                   <li>
                     <a 
-                      href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Responsive_Design" 
+                      href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center text-blue-400 hover:text-blue-300 transition-colors"
                     >
                       <FiExternalLink className="mr-2" />
-                      MDN Web 文档：响应式设计
+                      MDN Web Docs: Responsive Design
                     </a>
                   </li>
                   <li>
@@ -253,7 +253,7 @@ export default function GuidePage() {
                       className="flex items-center text-blue-400 hover:text-blue-300 transition-colors"
                     >
                       <FiExternalLink className="mr-2" />
-                      Google Web.dev：响应式设计基础
+                      Google Web.dev: Responsive Design Basics
                     </a>
                   </li>
                   <li>
@@ -264,7 +264,7 @@ export default function GuidePage() {
                       className="flex items-center text-blue-400 hover:text-blue-300 transition-colors"
                     >
                       <FiExternalLink className="mr-2" />
-                      Smashing Magazine：响应式网页设计文章
+                      Smashing Magazine: Responsive Web Design Articles
                     </a>
                   </li>
                 </ul>

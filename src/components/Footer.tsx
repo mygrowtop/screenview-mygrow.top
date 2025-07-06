@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FiGithub, FiTwitter, FiLinkedin } from "react-icons/fi";
+import { FiGithub, FiTwitter, FiLinkedin, FiMonitor } from "react-icons/fi";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,108 +12,118 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="flex items-center">
+              <div className="w-7 h-7 rounded-md bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center mr-2">
+                <FiMonitor className="text-white" size={14} />
+              </div>
               <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                响应式查看器
+                ScreenView
               </span>
             </Link>
             <p className="mt-4 text-gray-400 text-sm">
-              一个强大的工具，用于在不同设备和屏幕尺寸上预览网站。
-              适合开发者、设计师和 QA 测试人员使用。
+              A powerful tool for previewing websites on different devices and screen sizes.
+              Perfect for developers, designers, and QA testers.
             </p>
-            <div className="mt-6 flex space-x-4">
-              <a 
-                href="https://github.com/your-username/responsive-viewer" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <FiGithub size={20} />
-                <span className="sr-only">GitHub</span>
-              </a>
-              <a 
-                href="https://twitter.com/your-username" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <FiTwitter size={20} />
-                <span className="sr-only">Twitter</span>
-              </a>
-              <a 
-                href="https://linkedin.com/in/your-username" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <FiLinkedin size={20} />
-                <span className="sr-only">LinkedIn</span>
-              </a>
-            </div>
           </div>
           
           <div>
-            <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
-              资源
+            <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
+              Navigation
             </h3>
-            <ul className="mt-4 space-y-2">
+            <ul className="space-y-2">
               <li>
-                <Link 
-                  href="/guide" 
-                  className="text-gray-400 hover:text-white transition-colors text-sm"
-                >
-                  使用指南
+                <Link href="/" className="text-gray-400 hover:text-white transition-colors">
+                  Home
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/about" 
-                  className="text-gray-400 hover:text-white transition-colors text-sm"
-                >
-                  关于我们
+                <Link href="/guide" className="text-gray-400 hover:text-white transition-colors">
+                  Guide
                 </Link>
               </li>
               <li>
-                <a 
-                  href="https://github.com/your-username/responsive-viewer/issues" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors text-sm"
-                >
-                  报告问题
-                </a>
+                <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
-              法律
+            <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
+              Resources
             </h3>
-            <ul className="mt-4 space-y-2">
+            <ul className="space-y-2">
               <li>
-                <Link 
-                  href="/privacy" 
-                  className="text-gray-400 hover:text-white transition-colors text-sm"
+                <a 
+                  href="https://github.com/your-username/screen-view" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
                 >
-                  隐私政策
-                </Link>
+                  GitHub Repository
+                </a>
               </li>
               <li>
-                <Link 
-                  href="/terms" 
-                  className="text-gray-400 hover:text-white transition-colors text-sm"
+                <a 
+                  href="https://github.com/your-username/screen-view/issues" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
                 >
-                  服务条款
-                </Link>
+                  Report Issues
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Documentation
+                </a>
               </li>
             </ul>
           </div>
         </div>
         
-        <div className="mt-12 border-t border-gray-800 pt-8">
-          <p className="text-gray-400 text-sm text-center">
-            &copy; {currentYear} 响应式查看器. 保留所有权利.
+        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-400 text-sm">
+            &copy; {currentYear} ScreenView. All rights reserved.
           </p>
+          
+          <div className="flex space-x-4 mt-4 md:mt-0">
+            <a 
+              href="https://github.com/your-username" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+              aria-label="GitHub"
+            >
+              <FiGithub size={20} />
+            </a>
+            <a 
+              href="https://twitter.com/your-username" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+              aria-label="Twitter"
+            >
+              <FiTwitter size={20} />
+            </a>
+            <a 
+              href="https://linkedin.com/in/your-username" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+              aria-label="LinkedIn"
+            >
+              <FiLinkedin size={20} />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

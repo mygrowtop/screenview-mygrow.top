@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX, FiMonitor } from "react-icons/fi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,13 +42,18 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <motion.span 
+              <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent"
+                className="flex items-center"
               >
-                响应式查看器
-              </motion.span>
+                <div className="w-8 h-8 rounded-md bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center mr-2">
+                  <FiMonitor className="text-white" size={18} />
+                </div>
+                <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                  ScreenView
+                </span>
+              </motion.div>
             </Link>
           </div>
           
@@ -59,28 +64,28 @@ const Navbar = () => {
                 href="/" 
                 className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition-colors"
               >
-                首页
+                Home
               </Link>
               <Link 
                 href="/guide" 
                 className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
               >
-                使用指南
+                Guide
               </Link>
               <Link 
                 href="/about" 
                 className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
               >
-                关于我们
+                About
               </Link>
               <Link 
                 href="/contact" 
                 className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
               >
-                联系我们
+                Contact
               </Link>
               <a 
-                href="https://github.com/your-username/responsive-viewer" 
+                href="https://github.com/your-username/screen-view" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
@@ -117,7 +122,7 @@ const Navbar = () => {
                 className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-800"
                 onClick={toggleMenu}
               >
-                首页
+                Home
               </Link>
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -126,7 +131,7 @@ const Navbar = () => {
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white"
                 onClick={toggleMenu}
               >
-                使用指南
+                Guide
               </Link>
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -135,7 +140,7 @@ const Navbar = () => {
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white"
                 onClick={toggleMenu}
               >
-                关于我们
+                About
               </Link>
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -144,12 +149,12 @@ const Navbar = () => {
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white"
                 onClick={toggleMenu}
               >
-                联系我们
+                Contact
               </Link>
             </motion.div>
             <motion.div variants={itemVariants}>
               <a
-                href="https://github.com/your-username/responsive-viewer"
+                href="https://github.com/your-username/screen-view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white"

@@ -1,0 +1,5 @@
+<!-- 
+由于favicon.ico是二进制文件，无法直接在这里编辑。
+我们需要生成一个SVG文件，然后在浏览器中将其转换为favicon.ico。
+请使用public目录下的SVG文件作为favicon。
+--> 
