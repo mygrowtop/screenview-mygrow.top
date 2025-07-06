@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://responsive-viewer.pages.dev
+
+# Sitemaps
+Sitemap: https://responsive-viewer.pages.dev/sitemap.xml
