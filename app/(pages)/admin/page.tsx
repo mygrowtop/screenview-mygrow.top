@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FiMail, FiUser, FiCalendar, FiChevronLeft, FiChevronRight, FiX, FiCheck } from "react-icons/fi";
+import { Metadata } from "next";
 
 interface FormSubmission {
   id: number;
@@ -51,13 +52,13 @@ export default function AdminPage() {
         setPagination(data.data.pagination);
         setIsAuthenticated(true);
       } else {
-        setError(data.error || "获取数据失败");
+        setError(data.error || "Failed to fetch data");
         if (response.status === 401) {
           setIsAuthenticated(false);
         }
       }
     } catch (err) {
-      setError("获取数据时发生错误");
+      setError("An error occurred while fetching data");
       setIsAuthenticated(false);
     } finally {
       setIsLoading(false);
@@ -89,7 +90,7 @@ export default function AdminPage() {
   
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat('zh-CN', {
+    return new Intl.DateTimeFormat('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -105,9 +106,9 @@ export default function AdminPage() {
       <main className="flex-grow pt-20 pb-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-white mb-4">管理后台</h1>
+            <h1 className="text-4xl font-bold text-white mb-4">Admin Dashboard</h1>
             <p className="text-xl text-gray-300">
-              查看和管理提交的表单信息
+              View and manage form submissions
             </p>
           </div>
           
@@ -117,7 +118,7 @@ export default function AdminPage() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label htmlFor="adminKey" className="block text-sm font-medium text-gray-300 mb-1">
-                      管理密钥
+                      Admin Key
                     </label>
                     <input
                       type="password"
@@ -142,7 +143,7 @@ export default function AdminPage() {
                       isLoading ? "opacity-70 cursor-not-allowed" : ""
                     }`}
                   >
-                    {isLoading ? "验证中..." : "访问管理后台"}
+                    {isLoading ? "Verifying..." : "Access Admin Dashboard"}
                   </button>
                 </form>
               </div>
@@ -151,7 +152,7 @@ export default function AdminPage() {
             <div>
               {submissions.length > 0 ? (
                 <div className="space-y-6">
-                  {/* 数据表格 */}
+                  {/* Data table */}
                   <div className="bg-gray-800 overflow-hidden rounded-lg">
                     <div className="overflow-x-auto">
                       <table className="min-w-full divide-y divide-gray-700">
@@ -161,19 +162,19 @@ export default function AdminPage() {
                               ID
                             </th>
                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                              姓名
+                              Name
                             </th>
                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                              邮箱
+                              Email
                             </th>
                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                              主题
+                              Subject
                             </th>
                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                              提交时间
+                              Submitted At
                             </th>
                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                              状态
+                              Status
                             </th>
                           </tr>
                         </thead>
@@ -196,7 +197,7 @@ export default function AdminPage() {
                                 </div>
                               </td>
                               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                                {submission.subject || '(无主题)'}
+                                {submission.subject || '(No Subject)'}
                               </td>
                               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                                 <div className="flex items-center">
@@ -207,11 +208,11 @@ export default function AdminPage() {
                               <td className="px-6 py-4 whitespace-nowrap">
                                 {submission.is_read ? (
                                   <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-900 text-green-300">
-                                    <FiCheck className="mr-1" /> 已读
+                                    <FiCheck className="mr-1" /> Read
                                   </span>
                                 ) : (
                                   <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-900 text-blue-300">
-                                    新消息
+                                    New
                                   </span>
                                 )}
                               </td>
@@ -222,10 +223,10 @@ export default function AdminPage() {
                     </div>
                   </div>
                   
-                  {/* 分页 */}
+                  {/* Pagination */}
                   <div className="flex items-center justify-between">
                     <div className="text-sm text-gray-400">
-                      共 {pagination.totalItems} 条记录，第 {pagination.page} 页 / 共 {pagination.totalPages} 页
+                      Total {pagination.totalItems} records, Page {pagination.page} of {pagination.totalPages}
                     </div>
                     <div className="flex space-x-2">
                       <button
@@ -251,7 +252,7 @@ export default function AdminPage() {
                 </div>
               ) : (
                 <div className="bg-gray-800 rounded-lg p-8 text-center">
-                  <p className="text-gray-400">暂无表单提交数据</p>
+                  <p className="text-gray-400">No form submissions yet</p>
                 </div>
               )}
             </div>
@@ -262,4 +263,4 @@ export default function AdminPage() {
       <Footer />
     </div>
   );
-} 
+}

@@ -13,8 +13,39 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ScreenView - Multi-device Responsive Website Testing Tool",
+  title: "ScreenView - Preview and test websites on different devices and screen sizes",
   description: "All-in-one responsive design testing platform that lets you preview your website on 200+ devices and quickly identify cross-device compatibility issues",
+  keywords: ["responsive testing", "device testing", "website testing", "cross-device compatibility", "responsive design", "screen sizes", "web development tool"],
+  authors: [{ name: "ScreenView Team" }],
+  creator: "ScreenView",
+  publisher: "ScreenView",
+  metadataBase: new URL("https://responsive-viewer.pages.dev"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "ScreenView - Preview and test websites on different devices and screen sizes",
+    description: "All-in-one responsive design testing platform for previewing websites on 200+ devices",
+    url: "https://responsive-viewer.pages.dev",
+    siteName: "ScreenView",
+    type: "website",
+    locale: "zh_CN",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ScreenView - Preview websites on multiple devices",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ScreenView - Preview and test websites on different devices",
+    description: "Test your website on 200+ devices and screen sizes",
+    creator: "@aass0810",
+    images: ["/og-image.jpg"],
+  },
   icons: {
     icon: '/file.svg',
   },

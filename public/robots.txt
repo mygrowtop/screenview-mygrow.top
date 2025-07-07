@@ -1,9 +1,11 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin/*
 
 # Host
-Host: https://responsive-viewer.pages.dev
+Host: https://screenview.mygrow.top
 
 # Sitemaps
-Sitemap: https://responsive-viewer.pages.dev/sitemap.xml
+Sitemap: https://screenview.mygrow.top/sitemap.xml

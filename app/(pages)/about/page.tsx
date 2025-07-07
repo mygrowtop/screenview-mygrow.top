@@ -4,8 +4,18 @@ import Footer from "@/components/Footer";
 import { FiCode, FiUsers, FiGithub, FiExternalLink, FiMonitor } from "react-icons/fi";
 
 export const metadata: Metadata = {
-  title: "About - ScreenView",
-  description: "Learn about the ScreenView tool's features, functionality, and development team.",
+  title: "About ScreenView - Our Story and Mission",
+  description: "Learn about the ScreenView tool's features, development team, and how it helps developers create responsive websites across all devices.",
+  keywords: ["about ScreenView", "responsive testing tool", "web development team", "cross-device testing", "website compatibility"],
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About ScreenView - Our Story and Mission",
+    description: "Learn about the ScreenView tool's features, development team, and how it helps developers create responsive websites.",
+    url: "https://responsive-viewer.pages.dev/about",
+    type: "website",
+  }
 };
 
 export default function AboutPage() {

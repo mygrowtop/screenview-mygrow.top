@@ -8,6 +8,8 @@ import UrlInput from "@/components/UrlInput";
 import DeviceSelector from "@/components/DeviceSelector";
 import { Device } from "@/components/DeviceSelector";
 import { FiInfo, FiSettings, FiGrid, FiX, FiMonitor, FiSmartphone, FiTablet, FiCheck, FiAward, FiHelpCircle } from "react-icons/fi";
+import Link from "next/link";
+import DeviceFrame from "@/components/DeviceFrame";
 
 export default function Home() {
   const [url, setUrl] = useState<string>("");
@@ -54,7 +56,7 @@ export default function Home() {
   }, [url]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col dark:bg-gray-900">
       <Navbar />
       
       <main className="flex-grow pt-20 pb-12">

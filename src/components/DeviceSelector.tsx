@@ -542,7 +542,7 @@ const DeviceSelector = ({
                 )}
                 {device.year && (
                   <div className="text-xs text-gray-500">
-                    {device.year}年
+                    {device.year}
                   </div>
                 )}
               </div>

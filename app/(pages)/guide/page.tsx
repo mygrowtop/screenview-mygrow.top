@@ -4,8 +4,18 @@ import Footer from "@/components/Footer";
 import { FiMonitor, FiSmartphone, FiTablet, FiSettings, FiExternalLink } from "react-icons/fi";
 
 export const metadata: Metadata = {
-  title: "Guide - ScreenView",
-  description: "Learn how to use ScreenView to test websites on different devices and screen sizes.",
+  title: "How to Use ScreenView - Complete User Guide",
+  description: "Step-by-step tutorials and instructions for using ScreenView to test and preview your websites across multiple devices and screen sizes.",
+  keywords: ["ScreenView guide", "responsive testing tutorial", "device testing instructions", "website preview guide", "cross-device testing"],
+  alternates: {
+    canonical: "/guide",
+  },
+  openGraph: {
+    title: "How to Use ScreenView - Complete User Guide",
+    description: "Step-by-step guide for testing websites on multiple devices using ScreenView",
+    url: "https://responsive-viewer.pages.dev/guide",
+    type: "article",
+  }
 };
 
 export default function GuidePage() {
