@@ -25,7 +25,7 @@ A powerful tool for previewing websites on different devices and screen sizes si
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/responsive-viewer.git
+git clone https://github.com/aass0810/responsive-viewer.git
 cd responsive-viewer
 ```
 

@@ -85,7 +85,7 @@ const Navbar = () => {
                 Contact
               </Link>
               <a 
-                href="https://github.com/your-username/screen-view" 
+                href="https://github.com/aass0810" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
@@ -154,7 +154,7 @@ const Navbar = () => {
             </motion.div>
             <motion.div variants={itemVariants}>
               <a
-                href="https://github.com/your-username/screen-view"
+                href="https://github.com/aass0810"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white"

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { FiMail, FiGithub, FiTwitter, FiSend, FiAlertCircle, FiCheckCircle } from "react-icons/fi";
+import { FiMail, FiGithub, FiTwitter, FiInstagram, FiSend, FiAlertCircle, FiCheckCircle } from "react-icons/fi";
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({
@@ -74,7 +74,7 @@ export default function ContactPage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -89,10 +89,10 @@ export default function ContactPage() {
                 For general inquiries and support
               </p>
               <a 
-                href="mailto:contact@responsive-viewer.com" 
+                href="mailto:aass0810@gmail.com" 
                 className="text-blue-400 hover:text-blue-300 transition-colors"
               >
-                contact@responsive-viewer.com
+                aass0810@gmail.com
               </a>
             </motion.div>
             
@@ -110,12 +110,12 @@ export default function ContactPage() {
                 Report issues or contribute to the project
               </p>
               <a 
-                href="https://github.com/your-username/screen-view" 
+                href="https://github.com/aass0810" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-300 transition-colors"
               >
-                github.com/your-username/screen-view
+                github.com/aass0810
               </a>
             </motion.div>
             
@@ -128,17 +128,40 @@ export default function ContactPage() {
               <div className="h-12 w-12 rounded-full bg-indigo-600 flex items-center justify-center mx-auto mb-4">
                 <FiTwitter size={24} />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Twitter</h3>
+              <h3 className="text-xl font-bold text-white mb-2">X</h3>
               <p className="text-gray-300 mb-4">
                 Follow us for updates and announcements
               </p>
               <a 
-                href="https://twitter.com/your-username" 
+                href="https://x.com/aass0810" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-300 transition-colors"
               >
-                @responsive_viewer
+                @aass0810
+              </a>
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-gray-800 rounded-lg p-6 text-center"
+            >
+              <div className="h-12 w-12 rounded-full bg-pink-600 flex items-center justify-center mx-auto mb-4">
+                <FiInstagram size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Instagram</h3>
+              <p className="text-gray-300 mb-4">
+                Follow our visual updates and stories
+              </p>
+              <a 
+                href="https://www.instagram.com/aass0810/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300 transition-colors"
+              >
+                @aass0810
               </a>
             </motion.div>
           </div>

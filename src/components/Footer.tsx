@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FiGithub, FiTwitter, FiLinkedin, FiMonitor } from "react-icons/fi";
+import { FiGithub, FiTwitter, FiInstagram, FiMonitor } from "react-icons/fi";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -60,7 +60,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <a 
-                  href="https://github.com/your-username/screen-view" 
+                  href="https://github.com/aass0810" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -70,7 +70,7 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="https://github.com/your-username/screen-view/issues" 
+                  href="https://github.com/aass0810" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -97,7 +97,7 @@ const Footer = () => {
           
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a 
-              href="https://github.com/your-username" 
+              href="https://github.com/aass0810" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
@@ -106,22 +106,22 @@ const Footer = () => {
               <FiGithub size={20} />
             </a>
             <a 
-              href="https://twitter.com/your-username" 
+              href="https://x.com/aass0810" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
-              aria-label="Twitter"
+              aria-label="X"
             >
               <FiTwitter size={20} />
             </a>
             <a 
-              href="https://linkedin.com/in/your-username" 
+              href="https://www.instagram.com/aass0810/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
-              aria-label="LinkedIn"
+              aria-label="Instagram"
             >
-              <FiLinkedin size={20} />
+              <FiInstagram size={20} />
             </a>
           </div>
         </div>

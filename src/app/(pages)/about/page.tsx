@@ -89,7 +89,7 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-wrap gap-4 mt-6">
               <a 
-                href="https://github.com/your-username/screen-view"
+                href="https://github.com/aass0810"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-md text-white transition-colors"
@@ -98,7 +98,7 @@ export default function AboutPage() {
                 View on GitHub
               </a>
               <a 
-                href="https://github.com/your-username/screen-view/issues"
+                href="https://github.com/aass0810"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-md text-white transition-colors"
