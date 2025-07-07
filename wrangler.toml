@@ -4,4 +4,4 @@
 [[d1_databases]]
 binding = "CONTACT_DB" # 在代码中使用context.env.CONTACT_DB访问
 database_name = "screenview_contacts" # 在Cloudflare Dashboard中创建的数据库名称
-database_id = "" # 这个ID需要从Dashboard获取 
+database_id = "15026404-4060-40a9-a340-4b28b4c9c0e7" # 这个ID需要从Dashboard获取 
