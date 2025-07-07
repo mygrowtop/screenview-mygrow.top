@@ -5,7 +5,7 @@ interface SchemaOrgProps {
 }
 
 export default function SchemaOrg({ pageType = 'HomePage' }: SchemaOrgProps) {
-  // 基础组织信息
+  // Basic organization information
   const orgSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -19,28 +19,28 @@ export default function SchemaOrg({ pageType = 'HomePage' }: SchemaOrgProps) {
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
     },
-    url: 'https://responsive-viewer.pages.dev',
+    url: 'https://screenview.mygrow.top',
     author: {
       '@type': 'Person',
       name: 'ScreenView Team',
     },
   };
 
-  // 网站信息
+  // Website information
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'ScreenView',
-    url: 'https://responsive-viewer.pages.dev',
+    url: 'https://screenview.mygrow.top',
     description: 'Preview and test websites on different devices and screen sizes',
     potentialAction: {
       '@type': 'SearchAction',
-      'target': 'https://responsive-viewer.pages.dev/search?q={search_term_string}',
+      'target': 'https://screenview.mygrow.top/search?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
   };
 
-  // 页面特定信息
+  // Page specific information
   let pageSchema = {};
   
   switch (pageType) {
@@ -50,8 +50,8 @@ export default function SchemaOrg({ pageType = 'HomePage' }: SchemaOrgProps) {
         '@type': 'AboutPage',
         name: 'About ScreenView',
         description: 'Learn about the ScreenView tool\'s features, development team, and how it helps developers create responsive websites across all devices.',
-        url: 'https://responsive-viewer.pages.dev/about',
-        isPartOf: { '@id': 'https://responsive-viewer.pages.dev/#website' },
+        url: 'https://screenview.mygrow.top/about',
+        isPartOf: { '@id': 'https://screenview.mygrow.top/#website' },
       };
       break;
       
@@ -59,10 +59,10 @@ export default function SchemaOrg({ pageType = 'HomePage' }: SchemaOrgProps) {
       pageSchema = {
         '@context': 'https://schema.org',
         '@type': 'ContactPage',
-        name: '联系 ScreenView',
-        description: '与 ScreenView 团队联系，获取问题解答、技术支持或提供反馈。',
-        url: 'https://responsive-viewer.pages.dev/contact',
-        isPartOf: { '@id': 'https://responsive-viewer.pages.dev/#website' },
+        name: 'Contact ScreenView',
+        description: 'Contact the ScreenView team for questions, technical support, or to provide feedback.',
+        url: 'https://screenview.mygrow.top/contact',
+        isPartOf: { '@id': 'https://screenview.mygrow.top/#website' },
       };
       break;
       
@@ -72,7 +72,7 @@ export default function SchemaOrg({ pageType = 'HomePage' }: SchemaOrgProps) {
         '@type': 'TechArticle',
         headline: 'How to Use ScreenView',
         description: 'Step-by-step tutorials and instructions for using ScreenView to test and preview your websites across multiple devices and screen sizes.',
-        url: 'https://responsive-viewer.pages.dev/guide',
+        url: 'https://screenview.mygrow.top/guide',
         author: {
           '@type': 'Person',
           name: 'ScreenView Team',
@@ -82,7 +82,7 @@ export default function SchemaOrg({ pageType = 'HomePage' }: SchemaOrgProps) {
           name: 'ScreenView',
           logo: {
             '@type': 'ImageObject',
-            url: 'https://responsive-viewer.pages.dev/file.svg',
+            url: 'https://screenview.mygrow.top/file.svg',
           }
         },
         datePublished: '2024-01-01T00:00:00Z',
@@ -96,8 +96,8 @@ export default function SchemaOrg({ pageType = 'HomePage' }: SchemaOrgProps) {
         '@type': 'WebPage',
         name: 'ScreenView - Preview and test websites on different devices and screen sizes',
         description: 'All-in-one responsive design testing platform that lets you preview your website on 200+ devices and quickly identify cross-device compatibility issues',
-        url: 'https://responsive-viewer.pages.dev',
-        isPartOf: { '@id': 'https://responsive-viewer.pages.dev/#website' },
+        url: 'https://screenview.mygrow.top',
+        isPartOf: { '@id': 'https://screenview.mygrow.top/#website' },
       };
       break;
   }

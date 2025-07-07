@@ -19,17 +19,17 @@ export const metadata: Metadata = {
   authors: [{ name: "ScreenView Team" }],
   creator: "ScreenView",
   publisher: "ScreenView",
-  metadataBase: new URL("https://responsive-viewer.pages.dev"),
+  metadataBase: new URL("https://screenview.mygrow.top"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "ScreenView - Preview and test websites on different devices and screen sizes",
     description: "All-in-one responsive design testing platform for previewing websites on 200+ devices",
-    url: "https://responsive-viewer.pages.dev",
+    url: "https://screenview.mygrow.top",
     siteName: "ScreenView",
     type: "website",
-    locale: "zh_CN",
+    locale: "en_US",
     images: [
       {
         url: "/og-image.jpg",

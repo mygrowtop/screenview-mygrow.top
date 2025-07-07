@@ -1,4 +1,4 @@
--- 创建表单提交表
+-- Create form submissions table
 DROP TABLE IF EXISTS form_submissions;
 CREATE TABLE form_submissions (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -11,7 +11,7 @@ CREATE TABLE form_submissions (
   is_read INTEGER DEFAULT 0
 );
 
--- 创建索引
+-- Create indexes
 CREATE INDEX idx_form_submissions_email ON form_submissions(email);
 CREATE INDEX idx_form_submissions_submitted_at ON form_submissions(submitted_at);
 CREATE INDEX idx_form_submissions_is_read ON form_submissions(is_read); 

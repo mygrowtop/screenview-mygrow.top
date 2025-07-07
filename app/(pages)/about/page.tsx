@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About ScreenView - Our Story and Mission",
     description: "Learn about the ScreenView tool's features, development team, and how it helps developers create responsive websites.",
-    url: "https://responsive-viewer.pages.dev/about",
+    url: "https://screenview.mygrow.top/about",
     type: "website",
   }
 };

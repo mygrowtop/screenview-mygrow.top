@@ -1,12 +1,12 @@
 // Cloudflare Pages Function to handle form submissions
-// 使用D1数据库存储表单提交数据
+// Using D1 database to store form submissions
 
 export async function onRequestPost(context) {
   try {
-    // 获取表单JSON数据
+    // Get form JSON data
     const { name, email, subject, message } = await context.request.json();
     
-    // 验证表单数据
+    // Validate form data
     if (!name || !email || !message) {
       return new Response(JSON.stringify({ 
         success: false, 
@@ -22,14 +22,14 @@ export async function onRequestPost(context) {
       });
     }
     
-    // 获取D1数据库实例
+    // Get D1 database instance
     const db = context.env.CONTACT_DB;
     
     if (!db) {
-      console.error("D1数据库未配置");
+      console.error("D1 database not configured");
       return new Response(JSON.stringify({ 
         success: false, 
-        error: "数据库服务未配置" 
+        error: "Database service not configured" 
       }), {
         status: 500,
         headers: { 
@@ -41,22 +41,22 @@ export async function onRequestPost(context) {
       });
     }
     
-    // 将表单数据插入数据库
+    // Insert form data into database
     await db.prepare(
       "INSERT INTO form_submissions (name, email, subject, message, submitted_at, ip_address) VALUES (?, ?, ?, ?, ?, ?)"
     ).bind(
       name,
       email,
-      subject || "无主题",
+      subject || "No Subject",
       message,
       new Date().toISOString(),
       context.request.headers.get("CF-Connecting-IP") || "unknown"
     ).run();
     
-    // 成功响应
+    // Success response
     return new Response(JSON.stringify({ 
       success: true,
-      message: "表单提交成功" 
+      message: "Form submitted successfully" 
     }), {
       headers: { 
         'Content-Type': 'application/json',
@@ -67,11 +67,11 @@ export async function onRequestPost(context) {
     });
     
   } catch (error) {
-    console.error("表单提交错误:", error);
+    console.error("Form submission error:", error);
     
     return new Response(JSON.stringify({ 
       success: false, 
-      error: "处理提交时发生错误" 
+      error: "Error processing submission" 
     }), {
       status: 500,
       headers: { 
@@ -84,7 +84,7 @@ export async function onRequestPost(context) {
   }
 }
 
-// 处理预检请求
+// Handle preflight requests
 export async function onRequestOptions(context) {
   return new Response(null, {
     status: 204,

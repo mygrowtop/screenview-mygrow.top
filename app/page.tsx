@@ -133,7 +133,7 @@ export default function Home() {
                 <div className="flex items-center justify-between p-2 bg-gray-900 border-b border-gray-700">
                   <div className="flex items-center">
                     <span className="text-sm font-medium text-white">{selectedDevice.name}</span>
-                    <span className="ml-2 text-xs text-gray-400">{selectedDevice.width} × {selectedDevice.height}</span>
+                    <span className="ml-2 text-xs text-gray-400">{selectedDevice.width} x {selectedDevice.height}</span>
                   </div>
                   <button
                     onClick={handleCloseModal}

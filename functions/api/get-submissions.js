@@ -1,20 +1,20 @@
-// 获取表单提交数据的API
-// 需要简单的密码保护
+// API for retrieving form submission data
+// Requires simple password protection
 
 export async function onRequestGet(context) {
   try {
-    // 简单的密码保护 - 在实际应用中应该使用更安全的身份验证方法
+    // Simple password protection - in a real application, you should use more secure authentication methods
     const url = new URL(context.request.url);
     const password = url.searchParams.get("key");
     
-    // 验证密码 - 你可以在环境变量中设置正确的密码
-    // 这个简单示例使用硬编码密码，但你应该使用环境变量
+    // Validate password - you can set the correct password in environment variables
+    // This simple example uses a hardcoded password, but you should use environment variables
     const correctPassword = context.env.ADMIN_KEY || "screenview_admin";
     
     if (password !== correctPassword) {
       return new Response(JSON.stringify({ 
         success: false, 
-        error: "未授权访问" 
+        error: "Unauthorized access" 
       }), {
         status: 401,
         headers: { 
@@ -26,13 +26,13 @@ export async function onRequestGet(context) {
       });
     }
     
-    // 获取D1数据库实例
+    // Get D1 database instance
     const db = context.env.CONTACT_DB;
     
     if (!db) {
       return new Response(JSON.stringify({ 
         success: false, 
-        error: "数据库服务未配置" 
+        error: "Database service not configured" 
       }), {
         status: 500,
         headers: { 
@@ -44,21 +44,21 @@ export async function onRequestGet(context) {
       });
     }
     
-    // 分页参数
+    // Pagination parameters
     const page = parseInt(url.searchParams.get("page") || "1", 10);
     const limit = parseInt(url.searchParams.get("limit") || "10", 10);
     const offset = (page - 1) * limit;
     
-    // 查询总数
+    // Query total count
     const countResult = await db.prepare("SELECT COUNT(*) as count FROM form_submissions").all();
     const totalItems = countResult.results[0].count;
     
-    // 查询数据
+    // Query data
     const { results } = await db.prepare(
       "SELECT * FROM form_submissions ORDER BY submitted_at DESC LIMIT ? OFFSET ?"
     ).bind(limit, offset).all();
     
-    // 成功响应
+    // Success response
     return new Response(JSON.stringify({ 
       success: true,
       data: {
@@ -80,11 +80,11 @@ export async function onRequestGet(context) {
     });
     
   } catch (error) {
-    console.error("获取表单提交数据错误:", error);
+    console.error("Error getting form submission data:", error);
     
     return new Response(JSON.stringify({ 
       success: false, 
-      error: "获取数据时发生错误" 
+      error: "Error occurred while retrieving data" 
     }), {
       status: 500,
       headers: { 
@@ -97,7 +97,7 @@ export async function onRequestGet(context) {
   }
 }
 
-// 处理预检请求
+// Handle preflight requests
 export async function onRequestOptions(context) {
   return new Response(null, {
     status: 204,

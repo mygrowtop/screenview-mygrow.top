@@ -22,50 +22,50 @@ interface DeviceSelectorProps {
 }
 
 const PRESET_DEVICES: Device[] = [
-  // 最新设备 (2025年)
-  // iPhone 16系列
+  // Latest devices (2025)
+  // iPhone 16 series
   { id: "iphone-16", name: "iPhone 16", type: "mobile", width: 393, height: 852, brand: "Apple", year: 2025 },
   { id: "iphone-16-plus", name: "iPhone 16 Plus", type: "mobile", width: 430, height: 932, brand: "Apple", year: 2025 },
   { id: "iphone-16-pro", name: "iPhone 16 Pro", type: "mobile", width: 393, height: 852, brand: "Apple", year: 2025 },
   { id: "iphone-16-pro-max", name: "iPhone 16 Pro Max", type: "mobile", width: 430, height: 932, brand: "Apple", year: 2025 },
   { id: "iphone-16e", name: "iPhone 16e", type: "mobile", width: 393, height: 852, brand: "Apple", year: 2025 },
   
-  // Samsung Galaxy S25系列
+  // Samsung Galaxy S25 series
   { id: "samsung-galaxy-s25", name: "Samsung Galaxy S25", type: "mobile", width: 360, height: 780, brand: "Samsung", year: 2025 },
   { id: "samsung-galaxy-s25-plus", name: "Samsung Galaxy S25+", type: "mobile", width: 390, height: 844, brand: "Samsung", year: 2025 },
   { id: "samsung-galaxy-s25-ultra", name: "Samsung Galaxy S25 Ultra", type: "mobile", width: 412, height: 915, brand: "Samsung", year: 2025 },
   { id: "samsung-galaxy-s24-fe", name: "Samsung Galaxy S24 FE", type: "mobile", width: 390, height: 844, brand: "Samsung", year: 2024 },
   
-  // Google Pixel 10系列
+  // Google Pixel 10 series
   { id: "google-pixel-10", name: "Google Pixel 10", type: "mobile", width: 412, height: 915, brand: "Google", year: 2025 },
   { id: "google-pixel-10-pro", name: "Google Pixel 10 Pro", type: "mobile", width: 428, height: 926, brand: "Google", year: 2025 },
   { id: "google-pixel-10-fold", name: "Google Pixel 10 Fold", type: "mobile", width: 412, height: 915, brand: "Google", year: 2025 },
   
-  // Xiaomi 15系列
+  // Xiaomi 15 series
   { id: "xiaomi-15", name: "Xiaomi 15", type: "mobile", width: 393, height: 851, brand: "Xiaomi", year: 2024 },
   { id: "xiaomi-15-pro", name: "Xiaomi 15 Pro", type: "mobile", width: 412, height: 915, brand: "Xiaomi", year: 2024 },
   { id: "xiaomi-15-ultra", name: "Xiaomi 15 Ultra", type: "mobile", width: 412, height: 915, brand: "Xiaomi", year: 2024 },
   
-  // Huawei P70系列
+  // Huawei P70 series
   { id: "huawei-p70", name: "Huawei P70", type: "mobile", width: 393, height: 873, brand: "Huawei", year: 2024 },
   { id: "huawei-p70-pro", name: "Huawei P70 Pro", type: "mobile", width: 412, height: 915, brand: "Huawei", year: 2024 },
   { id: "huawei-p70-pro-plus", name: "Huawei P70 Pro+", type: "mobile", width: 428, height: 926, brand: "Huawei", year: 2024 },
   
-  // OPPO Find X8系列
+  // OPPO Find X8 series
   { id: "oppo-find-x8", name: "OPPO Find X8", type: "mobile", width: 393, height: 851, brand: "OPPO", year: 2024 },
   { id: "oppo-find-x8-pro", name: "OPPO Find X8 Pro", type: "mobile", width: 412, height: 915, brand: "OPPO", year: 2024 },
   { id: "oppo-find-x8-ultra", name: "OPPO Find X8 Ultra", type: "mobile", width: 428, height: 926, brand: "OPPO", year: 2024 },
   
-  // Vivo X200系列
+  // Vivo X200 series
   { id: "vivo-x200", name: "Vivo X200", type: "mobile", width: 393, height: 851, brand: "Vivo", year: 2024 },
   { id: "vivo-x200-pro", name: "Vivo X200 Pro", type: "mobile", width: 412, height: 915, brand: "Vivo", year: 2024 },
   { id: "vivo-x200-ultra", name: "Vivo X200 Ultra", type: "mobile", width: 428, height: 926, brand: "Vivo", year: 2024 },
   
-  // Honor Magic7系列
+  // Honor Magic7 series
   { id: "honor-magic7", name: "Honor Magic7", type: "mobile", width: 393, height: 851, brand: "Honor", year: 2024 },
   { id: "honor-magic7-pro", name: "Honor Magic7 Pro", type: "mobile", width: 412, height: 915, brand: "Honor", year: 2024 },
   
-  // Mobile Devices (2024年及更早)
+  // Mobile Devices (2024 and earlier)
   { id: "iphone-se", name: "iPhone SE", type: "mobile", width: 375, height: 667, brand: "Apple", year: 2022 },
   { id: "iphone-xr", name: "iPhone XR", type: "mobile", width: 414, height: 896, brand: "Apple", year: 2018 },
   { id: "iphone-12-mini", name: "iPhone 12 Mini", type: "mobile", width: 360, height: 780, brand: "Apple", year: 2020 },
@@ -188,7 +188,7 @@ const PRESET_DEVICES: Device[] = [
   { id: "macbook-pro-m4-pro", name: "MacBook Pro M4 Pro", type: "laptop", width: 1512, height: 982, brand: "Apple", year: 2025 },
   { id: "macbook-pro-m4-max", name: "MacBook Pro M4 Max", type: "laptop", width: 1728, height: 1117, brand: "Apple", year: 2025 },
   
-  // 恢复被删除的非Apple笔记本设备
+  // Restore deleted non-Apple laptops
   { id: "dell-xps-13", name: "Dell XPS 13", type: "laptop", width: 1920, height: 1080, brand: "Dell", year: 2022 },
   { id: "dell-xps-13-plus", name: "Dell XPS 13 Plus", type: "laptop", width: 1920, height: 1080, brand: "Dell", year: 2022 },
   { id: "dell-xps-13-2-in-1", name: "Dell XPS 13 2-in-1", type: "laptop", width: 1920, height: 1080, brand: "Dell", year: 2022 },
@@ -363,12 +363,12 @@ const DeviceSelector = ({
       : true;
     return matchesTab && matchesSearch && matchesBrand && matchesYear;
   })
-  // 按照上市年份从近到远排序
+  // Sort by release year from newest to oldest
   .sort((a, b) => {
-    // 如果设备没有年份信息，将其排在最后
+    // If device has no year information, place it at the end
     if (!a.year) return 1;
     if (!b.year) return -1;
-    // 年份从大到小排序（最新的在前面）
+    // Sort years in descending order (newest first)
     return b.year - a.year;
   });
 
@@ -532,7 +532,7 @@ const DeviceSelector = ({
                 <FiExternalLink className="text-gray-400" />
               </div>
               <div className="text-xs text-gray-400 mt-1">
-                {device.width} × {device.height}
+                {device.width} x {device.height}
               </div>
               <div className="flex justify-between items-center mt-1">
                 {device.brand && (

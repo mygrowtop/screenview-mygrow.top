@@ -27,7 +27,7 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // 基本验证
+    // Basic validation
     if (!formState.name || !formState.email || !formState.message) {
       setFormStatus("error");
       setErrorMessage("Please fill in all required fields.");
@@ -36,7 +36,7 @@ export default function ContactPage() {
     
     setFormStatus("submitting");
     
-    // 提交表单到API端点
+    // Submit form to API endpoint
     try {
       const response = await fetch('/api/submit-form', {
         method: 'POST',
@@ -54,7 +54,7 @@ export default function ContactPage() {
       const result = await response.json();
       
       if (result.success) {
-        // 成功后重置表单
+        // Reset form after success
         setFormState({
           name: "",
           email: "",
@@ -64,7 +64,7 @@ export default function ContactPage() {
         
         setFormStatus("success");
         
-        // 5秒后重置成功消息
+        // Reset success message after 5 seconds
         setTimeout(() => {
           setFormStatus("idle");
         }, 5000);
