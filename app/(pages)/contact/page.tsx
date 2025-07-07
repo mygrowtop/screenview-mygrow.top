@@ -27,7 +27,7 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
+    // 基本验证
     if (!formState.name || !formState.email || !formState.message) {
       setFormStatus("error");
       setErrorMessage("Please fill in all required fields.");
@@ -36,28 +36,45 @@ export default function ContactPage() {
     
     setFormStatus("submitting");
     
-    // Simulate form submission
+    // 提交表单到API端点
     try {
-      // In a real application, you would send the form data to a server
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
-      // Reset form on success
-      setFormState({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          subject: formState.subject,
+          message: formState.message
+        })
       });
       
-      setFormStatus("success");
+      const result = await response.json();
       
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setFormStatus("idle");
-      }, 5000);
+      if (result.success) {
+        // 成功后重置表单
+        setFormState({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+        
+        setFormStatus("success");
+        
+        // 5秒后重置成功消息
+        setTimeout(() => {
+          setFormStatus("idle");
+        }, 5000);
+      } else {
+        throw new Error(result.error || "Form submission failed");
+      }
     } catch (error) {
       setFormStatus("error");
-      setErrorMessage("An error occurred. Please try again later.");
+      setErrorMessage("An error occurred while submitting the form. Please try again later.");
+      console.error("Form submission error:", error);
     }
   };
   
