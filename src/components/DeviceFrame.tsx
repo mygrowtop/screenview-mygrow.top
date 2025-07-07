@@ -14,7 +14,7 @@ interface DeviceFrameProps {
   onModalClose?: () => void;
 }
 
-// 定义组件引用类型
+// Define component reference type
 export interface DeviceFrameRef {
   openModal: () => void;
 }
@@ -37,13 +37,13 @@ const DeviceFrame = forwardRef<DeviceFrameRef, DeviceFrameProps>(({
   const mainIframeRef = useRef<HTMLIFrameElement>(null);
   const modalIframeRef = useRef<HTMLIFrameElement>(null);
 
-  // 暴露方法给父组件
+  // Expose methods to parent component
   useImperativeHandle(ref, () => ({
     openModal: () => {
       console.log("openModal method called");
       setIsModalOpen(true);
       setIsModalLoading(true);
-      // 延迟设置iframe key，确保模态窗口DOM已经渲染
+      // Delay setting iframe key to ensure modal window DOM is rendered
       setTimeout(() => {
         console.log("Setting modal iframe key");
         setModalIframeKey(Date.now());
@@ -60,7 +60,7 @@ const DeviceFrame = forwardRef<DeviceFrameRef, DeviceFrameProps>(({
     }
   }, [url]);
 
-  // 添加用于调试的useEffect
+  // Add useEffect for debugging
   useEffect(() => {
     if (isModalOpen) {
       console.log("Modal is open");
@@ -94,7 +94,7 @@ const DeviceFrame = forwardRef<DeviceFrameRef, DeviceFrameProps>(({
     console.log("openModal function called directly");
     setIsModalOpen(true);
     setIsModalLoading(true);
-    // 当打开模态窗口时，确保iframe重新加载
+    // When opening modal window, ensure iframe reloads
     setTimeout(() => {
       console.log("Setting modal iframe key (direct)");
       setModalIframeKey(Date.now());
@@ -103,7 +103,7 @@ const DeviceFrame = forwardRef<DeviceFrameRef, DeviceFrameProps>(({
 
   const closeModal = () => {
     setIsModalOpen(false);
-    // 调用onModalClose回调函数，如果提供了的话
+    // Call onModalClose callback if provided
     if (onModalClose) {
       onModalClose();
     }
@@ -165,21 +165,21 @@ const DeviceFrame = forwardRef<DeviceFrameRef, DeviceFrameProps>(({
               <button
                 onClick={refreshIframe}
                 className="p-1 text-gray-400 hover:text-white transition-colors"
-                aria-label="刷新"
+                aria-label="Refresh"
               >
                 <FiRefreshCw size={16} />
               </button>
               <button
                 onClick={openModal}
                 className="p-1 text-gray-400 hover:text-white transition-colors"
-                aria-label="在模态窗口中打开"
+                aria-label="Open in modal"
               >
                 <FiExternalLink size={16} />
               </button>
               <button
                 onClick={toggleFullscreen}
                 className="p-1 text-gray-400 hover:text-white transition-colors"
-                aria-label={isFullscreen ? "退出全屏" : "进入全屏"}
+                aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
               >
                 {isFullscreen ? <FiMinimize size={16} /> : <FiMaximize size={16} />}
               </button>
@@ -223,12 +223,12 @@ const DeviceFrame = forwardRef<DeviceFrameRef, DeviceFrameProps>(({
           </div>
           
           <div className="mt-2 text-xs text-gray-500">
-            {width} × {height}
+            {width} x {height}
           </div>
         </div>
       </motion.div>
 
-      {/* 模态窗口 */}
+      {/* Modal window */}
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
@@ -255,7 +255,7 @@ const DeviceFrame = forwardRef<DeviceFrameRef, DeviceFrameProps>(({
               <div className="flex items-center justify-between p-2 bg-gray-900 border-b border-gray-700">
                 <div className="flex items-center">
                   <span className="text-sm font-medium text-white">{deviceName}</span>
-                  <span className="ml-2 text-xs text-gray-400">{width} × {height}</span>
+                  <span className="ml-2 text-xs text-gray-400">{width} x {height}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <button
@@ -265,7 +265,7 @@ const DeviceFrame = forwardRef<DeviceFrameRef, DeviceFrameProps>(({
                       setModalIframeKey(Date.now());
                     }}
                     className="p-1 text-gray-400 hover:text-white transition-colors"
-                    aria-label="刷新"
+                    aria-label="Refresh"
                   >
                     <FiRefreshCw size={16} />
                   </button>
@@ -275,7 +275,7 @@ const DeviceFrame = forwardRef<DeviceFrameRef, DeviceFrameProps>(({
                       closeModal();
                     }}
                     className="p-1 text-gray-400 hover:text-white transition-colors"
-                    aria-label="关闭"
+                    aria-label="Close"
                   >
                     <FiX size={20} />
                   </button>

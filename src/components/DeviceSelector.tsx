@@ -392,7 +392,7 @@ const DeviceSelector = ({
             <FiSmartphone className="mr-1" />
             Mobile
           </button>
-          <button
+                      <button
             onClick={() => handleTabChange("tablet")}
             className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors ${
               activeTab === "tablet"
@@ -401,7 +401,7 @@ const DeviceSelector = ({
             }`}
           >
             <FiTablet className="mr-1" />
-            pad
+            Pad
           </button>
           <button
             onClick={() => handleTabChange("laptop")}
