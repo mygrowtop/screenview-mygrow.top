@@ -1,5 +1,5 @@
 // Cloudflare Pages Function to handle form submissions
-// 你需要在Cloudflare的环境变量中设置SENDGRID_API_KEY
+// 使用D1数据库存储表单提交数据
 
 export async function onRequestPost(context) {
   try {
@@ -17,70 +17,46 @@ export async function onRequestPost(context) {
       });
     }
     
-    // 构建发送给收件人的邮件内容
-    const formattedSubject = subject ? subject : "New contact form submission";
-    const emailContent = `
-      Name: ${name}
-      Email: ${email}
-      Subject: ${formattedSubject}
-      Message: ${message}
-    `;
+    // 获取D1数据库实例
+    const db = context.env.CONTACT_DB;
     
-    // SendGrid API集成
-    // 注意：你需要在Cloudflare Pages的环境变量中设置SENDGRID_API_KEY
-    const SENDGRID_API_KEY = context.env.SENDGRID_API_KEY;
-    
-    if (!SENDGRID_API_KEY) {
-      console.error("SendGrid API key not configured");
+    if (!db) {
+      console.error("D1数据库未配置");
       return new Response(JSON.stringify({ 
         success: false, 
-        error: "Email service not configured" 
+        error: "数据库服务未配置" 
       }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' }
       });
     }
     
-    const response = await fetch("https://api.sendgrid.com/v3/mail/send", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${SENDGRID_API_KEY}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        personalizations: [{
-          to: [{ email: "aass0810@gmail.com", name: "ScreenView Admin" }]
-        }],
-        from: { email: "no-reply@screenview.app", name: "ScreenView Contact Form" },
-        reply_to: { email: email, name: name },
-        subject: `ScreenView Contact: ${formattedSubject}`,
-        content: [{
-          type: "text/plain",
-          value: emailContent
-        }]
-      })
-    });
-    
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error("SendGrid API error:", errorText);
-      throw new Error("Failed to send email");
-    }
+    // 将表单数据插入数据库
+    await db.prepare(
+      "INSERT INTO form_submissions (name, email, subject, message, submitted_at, ip_address) VALUES (?, ?, ?, ?, ?, ?)"
+    ).bind(
+      name,
+      email,
+      subject || "无主题",
+      message,
+      new Date().toISOString(),
+      context.request.headers.get("CF-Connecting-IP") || "unknown"
+    ).run();
     
     // 成功响应
     return new Response(JSON.stringify({ 
       success: true,
-      message: "Form submitted successfully" 
+      message: "表单提交成功" 
     }), {
       headers: { 'Content-Type': 'application/json' }
     });
     
   } catch (error) {
-    console.error("Form submission error:", error);
+    console.error("表单提交错误:", error);
     
     return new Response(JSON.stringify({ 
       success: false, 
-      error: "An error occurred while processing your submission" 
+      error: "处理提交时发生错误" 
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
