@@ -362,6 +362,14 @@ const DeviceSelector = ({
         `${device.width}x${device.height}`.includes(searchQuery)
       : true;
     return matchesTab && matchesSearch && matchesBrand && matchesYear;
+  })
+  // 按照上市年份从近到远排序
+  .sort((a, b) => {
+    // 如果设备没有年份信息，将其排在最后
+    if (!a.year) return 1;
+    if (!b.year) return -1;
+    // 年份从大到小排序（最新的在前面）
+    return b.year - a.year;
   });
 
   const availableBrands = getBrandsForActiveTab();
@@ -393,7 +401,7 @@ const DeviceSelector = ({
             }`}
           >
             <FiTablet className="mr-1" />
-            Tablet
+            pad
           </button>
           <button
             onClick={() => handleTabChange("laptop")}
