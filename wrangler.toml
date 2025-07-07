@@ -4,4 +4,4 @@
 [[d1_databases]]
 binding = "CONTACT_DB" # Access in code using context.env.CONTACT_DB
 database_name = "screenview_contacts" # Database name created in Cloudflare Dashboard
-database_id = "15026404-4060-40a9-a340-4b28b4c9c0e7" # This ID needs to be obtained from Dashboard
+database_id = "15026404-4060-40a9-a340-4b28b4c9c0e7" # This ID needs to be obtained from Dashboard 
