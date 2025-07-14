@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiSearch, FiX, FiLink } from "react-icons/fi";
 import { motion } from "framer-motion";
 
@@ -14,6 +14,30 @@ const UrlInput = ({ onSubmit, initialUrl = "" }: UrlInputProps) => {
   const [isValid, setIsValid] = useState(true);
   const [recentUrls, setRecentUrls] = useState<string[]>([]);
   const [showRecent, setShowRecent] = useState(false);
+
+  // Load recent URLs from local storage on component mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedUrls = localStorage.getItem("recentUrls");
+      if (savedUrls) {
+        try {
+          const parsedUrls = JSON.parse(savedUrls);
+          if (Array.isArray(parsedUrls)) {
+            setRecentUrls(parsedUrls);
+          }
+        } catch (e) {
+          console.error("Failed to parse recent URLs from localStorage");
+        }
+      }
+    }
+  }, []);
+
+  // Update input value when initialUrl prop changes
+  useEffect(() => {
+    if (initialUrl && initialUrl !== inputValue) {
+      setInputValue(initialUrl);
+    }
+  }, [initialUrl, inputValue]);
 
   const validateUrl = (url: string): boolean => {
     if (!url) return false;
@@ -72,23 +96,6 @@ const UrlInput = ({ onSubmit, initialUrl = "" }: UrlInputProps) => {
     onSubmit(url);
     setShowRecent(false);
   };
-
-  // Load recent URLs from local storage on component mount
-  useState(() => {
-    if (typeof window !== "undefined") {
-      const savedUrls = localStorage.getItem("recentUrls");
-      if (savedUrls) {
-        try {
-          const parsedUrls = JSON.parse(savedUrls);
-          if (Array.isArray(parsedUrls)) {
-            setRecentUrls(parsedUrls);
-          }
-        } catch (e) {
-          console.error("Failed to parse recent URLs from localStorage");
-        }
-      }
-    }
-  });
 
   return (
     <div className="w-full max-w-3xl mx-auto">

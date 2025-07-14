@@ -18,7 +18,33 @@ export default function Home() {
 
   // Handle URL submission
   const handleUrlSubmit = (submittedUrl: string) => {
-    setUrl(submittedUrl);
+    console.log("URL submitted:", submittedUrl);
+    
+    // Ensure URL is formatted correctly
+    let processedUrl = submittedUrl;
+    if (!/^https?:\/\//i.test(submittedUrl)) {
+      processedUrl = `https://${submittedUrl}`;
+    }
+    
+    // Update the URL state
+    setUrl(processedUrl);
+    
+    // Always select a default device and show preview when URL is submitted
+    // This makes the example buttons work immediately
+    const defaultDeviceData = {
+      id: "iphone-12",
+      name: "iPhone 12/13",
+      type: "mobile" as const,
+      width: 390,
+      height: 844,
+      brand: "Apple",
+      year: 2020
+    };
+    
+    // Use a small timeout to ensure state updates properly
+    setTimeout(() => {
+      handleDeviceSelect(defaultDeviceData);
+    }, 50);
   };
 
   // Handle device selection
@@ -115,8 +141,18 @@ export default function Home() {
                   ].map((site) => (
                     <button
                       key={site.url}
-                      onClick={() => handleUrlSubmit(site.url)}
-                      className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-sm rounded-md text-gray-300 transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        console.log("Example site clicked:", site.url);
+                        
+                        // Add visual feedback
+                        const btn = e.currentTarget;
+                        btn.classList.add('bg-blue-600');
+                        setTimeout(() => btn.classList.remove('bg-blue-600'), 200);
+                        
+                        handleUrlSubmit(site.url);
+                      }}
+                      className="px-3 py-1 bg-gray-700 hover:bg-gray-600 active:bg-blue-600 text-sm rounded-md text-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       {site.name}
                     </button>
@@ -183,6 +219,8 @@ export default function Home() {
                     loading="eager"
                     allow="fullscreen; camera; microphone; payment"
                     referrerPolicy="no-referrer"
+                    onLoad={() => console.log("iframe loaded:", url || "https://example.com")}
+                    onError={(e) => console.error("iframe error:", e)}
                   />
                 </div>
               </div>
