@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import UrlInput from "@/components/UrlInput";
 import DeviceSelector from "@/components/DeviceSelector";
 import { Device } from "@/components/DeviceSelector";
-import { FiInfo, FiSettings, FiGrid, FiX, FiMonitor, FiSmartphone, FiTablet, FiCheck, FiAward, FiHelpCircle } from "react-icons/fi";
+import { FiInfo, FiSettings, FiGrid, FiX, FiMonitor, FiSmartphone, FiTablet, FiCheck, FiAward, FiHelpCircle, FiAlertTriangle } from "react-icons/fi";
 import Link from "next/link";
 import DeviceFrame from "@/components/DeviceFrame";
 
@@ -104,6 +104,24 @@ export default function Home() {
               className="mt-4"
             >
               <UrlInput onSubmit={handleUrlSubmit} initialUrl={url} />
+                
+                <div className="mt-4 flex flex-wrap justify-center gap-2">
+                  <span className="text-gray-400 text-sm mr-2 mt-1">Example sites:</span>
+                  {[
+                    { name: "Example", url: "https://example.com" },
+                    { name: "HTML5 Test", url: "https://html5test.com" },
+                    { name: "MDN", url: "https://developer.mozilla.org" },
+                    { name: "Wikipedia", url: "https://en.wikipedia.org" }
+                  ].map((site) => (
+                    <button
+                      key={site.url}
+                      onClick={() => handleUrlSubmit(site.url)}
+                      className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-sm rounded-md text-gray-300 transition-colors"
+                    >
+                      {site.name}
+                    </button>
+                  ))}
+                </div>
             </motion.div>
           </section>
           
@@ -161,9 +179,9 @@ export default function Home() {
                       height: `${selectedDevice.height}px`,
                       border: "none",
                     }}
-                    sandbox="allow-same-origin allow-scripts allow-forms"
+                    sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-presentation allow-downloads"
                     loading="eager"
-                    allow="fullscreen"
+                    allow="fullscreen; camera; microphone; payment"
                     referrerPolicy="no-referrer"
                   />
                 </div>
@@ -176,9 +194,24 @@ export default function Home() {
             <div className="text-center py-12 bg-gray-800 rounded-lg mt-8">
               <FiInfo size={48} className="mx-auto text-gray-400 mb-4" />
               <h3 className="text-xl font-medium text-white mb-2">Enter a URL</h3>
-              <p className="text-gray-400">
+              <p className="text-gray-400 mb-6">
                 Please enter a website URL in the input field above to preview it on selected devices.
               </p>
+              
+              <div className="max-w-2xl mx-auto bg-gray-700 p-4 rounded-lg border-l-4 border-yellow-500">
+                <h4 className="text-white font-medium flex items-center mb-2">
+                  <FiAlertTriangle className="mr-2 text-yellow-500" />
+                  Important Note
+                </h4>
+                <p className="text-sm text-gray-300">
+                  For security reasons, many websites use X-Frame-Options or Content-Security-Policy to restrict display in iframes, causing blank screens. This is a security mechanism of the website itself and not something our tool can control. We recommend using:
+                </p>
+                <ul className="text-sm text-gray-300 mt-2 list-disc list-inside">
+                  <li>Your own developed websites</li>
+                  <li>Websites that allow loading in iframes (like some open-source documentation)</li>
+                  <li>Websites without strict security settings</li>
+                </ul>
+              </div>
             </div>
           ) : null}
           

@@ -4,9 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FiMenu, FiX, FiMonitor } from "react-icons/fi";
+import { usePathname } from "next/navigation";
+import { AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -36,6 +40,13 @@ const Navbar = () => {
     open: { opacity: 1, y: 0 },
   };
 
+  const navigation = [
+    { name: 'Home', href: '/' },
+    { name: 'Guide', href: '/guide' },
+    { name: 'Troubleshooting', href: '/troubleshooting' },
+    { name: 'About', href: '/about' },
+  ];
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,53 +68,64 @@ const Navbar = () => {
             </Link>
           </div>
           
-          {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-4">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex md:items-center md:gap-6">
+            {navigation.map((item) => (
               <Link 
-                href="/" 
-                className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-800 transition-colors"
+                key={item.name}
+                href={item.href}
+                className={`text-gray-300 hover:text-white transition-colors ${
+                  pathname === item.href ? 'text-white' : ''
+                }`}
               >
-                Home
+                {item.name}
               </Link>
-              <Link 
-                href="/guide" 
-                className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
-              >
-                Guide
-              </Link>
-              <Link 
-                href="/about" 
-                className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
-              >
-                About
-              </Link>
-              <Link 
-                href="/contact" 
-                className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
-              >
-                Contact
-              </Link>
-              <a 
-                href="https://github.com/aass0810" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
-              >
-                GitHub
-              </a>
-            </div>
+            ))}
           </div>
           
-          {/* Mobile Menu Button */}
+          {/* Mobile button */}
           <div className="md:hidden">
-            <button
-              onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none"
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
+              aria-expanded={isMobileMenuOpen}
             >
-              {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+              <span className="sr-only">{isMobileMenuOpen ? 'Close menu' : 'Open menu'}</span>
+              {isMobileMenuOpen ? (
+                <FiX className="block h-6 w-6" aria-hidden="true" />
+              ) : (
+                <FiMenu className="block h-6 w-6" aria-hidden="true" />
+              )}
             </button>
           </div>
+          
+          {/* Mobile Navigation */}
+          <AnimatePresence>
+            {isMobileMenuOpen && (
+              <motion.div 
+                className="absolute top-full left-0 right-0 bg-gray-900 border-t border-gray-800 py-3 px-4 md:hidden"
+                initial="closed"
+                animate="open"
+                exit="closed"
+                variants={menuVariants}
+              >
+                <div className="flex flex-col space-y-3">
+                  {navigation.map((item) => (
+                    <Link 
+                      key={item.name}
+                      href={item.href}
+                      className={`text-gray-300 hover:text-white transition-colors ${
+                        pathname === item.href ? 'text-white' : ''
+                      }`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 
